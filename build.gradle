@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.5.RELEASE'
+        springBootVersion = '2.1.7.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -23,7 +23,9 @@ repositories {
     mavenCentral()
 }
 
+// 원래 gradle 7버전이었으나 명령어가 맞지 않아 4.10.2 버전으로 다운그레이드
 dependencies {
+
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
