@@ -24,8 +24,10 @@ repositories {
 }
 
 // 원래 gradle 7버전이었으나 명령어가 맞지 않아 4.10.2 버전으로 다운그레이드
+// ./gradlew wrapper --gradle-version 4.10.2
 dependencies {
 
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
