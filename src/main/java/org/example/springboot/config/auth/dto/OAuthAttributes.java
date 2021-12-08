@@ -25,6 +25,7 @@ public class OAuthAttributes {
         this.picture = picture;
     }
 
+    // 어떤 OAuth를 사용할 지 정해주는 메소드
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
         if ("naver".equals(registrationId)) return ofNaver("id", attributes);
 
@@ -53,6 +54,7 @@ public class OAuthAttributes {
                 .build();
     }
 
+    // 로그인 결과를 가지고 User 엔티티를 생성하는 메소드
     public User toEntity() {
         return User.builder()
                 .name(name)
