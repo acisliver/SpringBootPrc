@@ -6,6 +6,10 @@ branches:
   only:
     - main
 
+#빌드 전 권한 추가
+before_install:
+  - chmod +x gradlew
+
 #Travis Ci 서버의 Home
 cache:
   directories:
