@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/*.zip $REPOSITORY/
 
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -fl $PROJECT_NAME | grep gar | awk '{pring $l}')
+CURRENT_PID=$(pgrep -fl $PROJECT_NAME | grep gar | awk '{print $l}')
 
 echo "> 현재 구동 중인 애플리케이션 pid: $CURRENT_PID"
 
