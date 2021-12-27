@@ -19,9 +19,16 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r springboot-prc-webservice *
-  - mkdir -p deploy
-  - mv springboot-prc-webservice.zip deploy/springboot-prc-webservice.zip
+  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+  - cp sriptes/*.sh before-deploy/
+  - cp appspec.yml berfore-deploy/
+  - cp build/lib/*.jar before-deploy
+  - cd before-deploy && zip -r before-deploy * #before-deploy로 이동 후 전체 압축
+  - cd ../ && mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
+  - mv before-deploy/before-deploy.zip deploy/springboot-prc-webservice.zip
+#  - zip -r springboot-prc-webservice *
+#  - mkdir -p deploy
+#  - mv springboot-prc-webservice.zip deploy/springboot-prc-webservice.zip
 
 deploy:
   - provider: s3
@@ -43,7 +50,7 @@ deploy:
     key: springboot-prc-webservice.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
     application: springboot-prc-webservice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
-    deployment_group: springboot-prc-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    deployment_group: springboot-prc`-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
     on:
