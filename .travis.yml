@@ -42,8 +42,8 @@ deploy:
     bucket: springboot-prc-build # S3 버킷
     key: springboot-prc-webservice.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
-    application: freelec-springboot2-webservice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
-    deployment_group: freelec-springboot2-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    application: springboot-prc-webservice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: springboot-prc-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
     on:
